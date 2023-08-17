@@ -25,6 +25,7 @@ function display_group(groupName) {
 
 function display_students(names) {
     const nameHolder = document.querySelector('#student-page');
+    nameHolder.innerHTML = '';
 
     for (let person of names.all) {
         const li = document.createElement('li');
@@ -38,19 +39,23 @@ document.addEventListener('DOMContentLoaded', function() {
     setup();
 
     if (!localStorage.getItem('names')) {
-        localStorage.setItem("names", JSON.stringify({all: ['No name yet']}));
+        localStorage.setItem("names", JSON.stringify({all: []}));
     }
 
-    console.log(JSON.parse(localStorage.getItem('names')));
+    // console.log(JSON.parse(localStorage.getItem('names')));
     display_students(JSON.parse(localStorage.getItem("names")));
     
     const form = document.querySelector('#name-form');
     form.onsubmit = function() {
         // save into memory
         let olds = JSON.parse(localStorage.getItem('names'));
-        olds.append(this.name.value);
-        const news = {all: olds.all};
-        localStorage.setItem('names', news);
+        olds = olds.all;
+        olds.push(this.name.value);
+        this.name.value = '';
+        // console.log(olds)
+        const news = {all: olds};
+        localStorage.setItem('names', JSON.stringify(news));
+        
 
         
         display_students(JSON.parse(localStorage.getItem('names')));
