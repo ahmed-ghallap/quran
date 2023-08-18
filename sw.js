@@ -4,7 +4,6 @@ self.addEventListener('install', function(event) {
         .then(cache => {
             return cache.addAll([
                 "./", "./master.js", "./helpers.js", 
-                "./icons"
             ]);
         })
     );
