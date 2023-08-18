@@ -5,104 +5,14 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="styles/styles.css">
-    <!-- <script src="helpers.js"></script> -->
-    <!-- <script src="master.js"></script> -->
     <script>
-function display(page) {
-    document.querySelector('#main-page').style.display = 'none';
-    document.querySelector('#student-page').style.display = 'none';
-
-    document.querySelector(`#${page}-page`).style.display = 'block';
-}
-
-let ahmed = {
-    name: "احمد غلاب",
-    revesion: "ق",
-    newQ: "البقرة"
-}
-
-let ali = {
-    name: "يوسف علاء",
-    revesion: "ق",
-    newQ: "البقرة"
-}
-
-let mohamed = {
-    name: "يحي احمد",
-    revesion: "ق",
-    newQ: "البقرة"
-}
-
-
-let group1 = {
-    students: [ali, ahmed, mohamed],
-    name: "مجموعة1"
-}
-let group2 = {
-    students: [ali, ahmed, mohamed],
-    name: "مجموعة2"
-}
-let group3 = {
-    students: [ali, ahmed, mohamed],
-    name: "مجموعة3"
-}
-
-let groups = {
-    all: [group1, group2, group3]
-}
-
-function setup() {
-    const allGroups = groups.all
-    const options = document.querySelector('#groups');
-    
-    allGroups.forEach(function(group) {
-        const option = document.createElement('option');
-        option.value, option.innerHTML = group.name;
-        // option.addEventListener('click')
-        options.append(option);
-    });
-}
-
-function display_students(names) {
-    const nameHolder = document.querySelector('#student-page');
-    nameHolder.innerHTML = '';
-
-    for (let person of names.all) {
-        const li = document.createElement('li');
-        console.log(person)
-        li.innerHTML = person;
-        nameHolder.append(li);
-    }
-}
-document.addEventListener('DOMContentLoaded', function() {
-    setup();
-
-    if (!localStorage.getItem('names')) {
-        localStorage.setItem("names", JSON.stringify({all: []}));
-    }
-
-    // console.log(JSON.parse(localStorage.getItem('names')));
-    display_students(JSON.parse(localStorage.getItem("names")));
-    
-    const form = document.querySelector('#name-form');
-    form.onsubmit = function() {
-        // save into memory
-        let olds = JSON.parse(localStorage.getItem('names'));
-        olds = olds.all;
-        olds.push(this.name.value);
-        this.name.value = '';
-        // console.log(olds)
-        const news = {all: olds};
-        localStorage.setItem('names', JSON.stringify(news));
-        
-
-        
-        display_students(JSON.parse(localStorage.getItem('names')));
-        return false;
-    }
-    
-});
+        if ('serviceWorker' in navigator) {
+            navigator.serviceWorker.register('helpers.js');
+            navigator.serviceWorker.register('master.js');
+        }
     </script>
+    <script src="helpers.js"></script>
+    <script src="master.js"></script>
     <title>مشروع</title>
 </head>
 <body>
