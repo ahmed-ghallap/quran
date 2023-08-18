@@ -9,7 +9,9 @@
 // 2- add&remove(student, date)
 // 3- display_student_info(student-name, students)
 
-
+if ('serviceWorker' in navigator) {
+    navigator.serviceWorker.register('sw.js');
+}
 
 function display_group(groupName) {
     const allGroups = groups.all
