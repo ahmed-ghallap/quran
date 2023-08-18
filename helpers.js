@@ -52,4 +52,3 @@ function setup() {
         options.append(option);
     });
 }
-
