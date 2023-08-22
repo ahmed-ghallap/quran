@@ -35,6 +35,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
     // display all studets;
     const studentsCan = document.querySelector('#students');
+    studentsCan.innerHTML = '';
     get_objects_students().forEach(student => {
         const tmp = document.createElement('div');
         tmp.innerHTML = student.name;
@@ -43,11 +44,20 @@ document.addEventListener('DOMContentLoaded', function() {
 
     //diplay all groups.
     const groupsCan = document.querySelector('#groups');
+    groupsCan.innerHTML = '';
     get_objects_groups().forEach(group => {
         const tmp = document.createElement('div');
         tmp.innerHTML = group.name;
         groupsCan.append(tmp);
     });
+
+    
+    document.querySelector('#get-sura').onsubmit = function(form) {
+        document.querySelector('#quran').innerHTML =
+        get_chapter(this.sura.value, this.from.value, this.to.value).innerHTML;
+        return false;
+        
+    }
 
 
 

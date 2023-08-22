@@ -225,6 +225,7 @@ function get_chapter(sura, from=1, to=0) {
     for (let i = Math.abs(from-1); i <= to-1; i++) {
         const span = document.createElement('span');
         span.innerHTML = ayahs[i].text + `(${i})`;
+        chapter.append(span);
     }
     return chapter;
 }
