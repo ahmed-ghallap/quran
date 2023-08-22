@@ -50,7 +50,7 @@
 </head>
 <body>
 
-    <h1>بسم الله</h1>
+    <h1 class="text-center text-primary">بسم الله</h1>
 
     <!-- create a student
     <h2> سجل طالب</h2>
@@ -101,11 +101,20 @@
     
       <div>
           <h2 class="text-center m-3 text-success ">مجموعة الصالحين</h2>
-          <table class="table table-hover table-bordered border-primary  text-center" id="group-table">
+          <table class="table table-hover   text-center" id="group-table">
             <caption>مجموعة الصالحين</caption>
-                
+            <div class="d-flex justify-content-center m-4">
+                <select class="form-select w-50 " >
+                    <!-- <option selected>اضف طالب الي المجمعة</option> -->
+                    <option value="1">احمد</option>
+                    <option value="2">يوسف</option>
+                    <option value="3">عبد الله</option>
+                </select>
+                <input type="submit" class="ms-3 btn btn-outline-primary" value="اضف طاب الي المجمعة">
+            </div>
+                    
               <thead>
-                  <tr class="table-primary border">
+                  <tr class="table-primary ">
                       <th scope="col" class="table-secondary">اسم الطالب</th>
                       <th scope="col" class="table-primary">الحضور</th>
                       <th scope="col" class="table-primary">ما عليه من حفظ ومراجعة</th>
