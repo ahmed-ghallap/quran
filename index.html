@@ -46,23 +46,32 @@
     <title>مشروع</title>
 </head>
 <body>
-    <div>
-        <select id="groups"></select>
-    </div>
 
-    <div id="main-page">
-        <h1>بسم الله</h1>
-    
-        <form id="name-form">
-            <input name="name" autocomplete="off" autofocus type="text" placeholder="ادخل الاسم">
-            <select name="group-date" id="all-groups"></select>
-            <input type="submit" value="سجل">
-        </form>
-    
-        <ul id="group"></ul>
-    </div>
+    <h1>بسم الله</h1>
 
-    <div id="student-page"></div>
+    <!-- create a student -->
+    <h2> سجل طالب</h2>
+    <form id="add-student">
+        <input autofocus autocomplete="off" name="name" placeholder="اسم الطالب">
+        <input type="submit" value="سجل">
+    </form>
+
+    <!-- create a group  -->
+    <h2>انشئ مجموعة</h2>
+    <form id="add-group">
+        <input name="name" placeholder="اسم المجمعة">
+        <input name="day" placeholder="يوم">
+        <input type="submit" value="انشئ">
+    </form>
+   
+    <!-- dispay students -->
+    <h2>جمع الطلاب مؤقت</h2>
+    <div id="students"></div>
+    <!-- display groups names -->
+    <h2>جمع الطلاب مؤقت</h2>
+    <div id="groups"></div>
+    
     
 </body>
 </html>
+<!-- الحمد لله -->

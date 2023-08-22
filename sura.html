@@ -1,0 +1,95 @@
+
+<!DOCTYPE html>
+<html dir="rtl" lang="ar">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sura Test</title>
+    <script>
+
+        const VERSES = JSON.parse(localStorage.getItem('quran2'));
+
+        function get_period_sura(sura_key, from, to) {
+            const sura = document.querySelector('#sura');
+            sura.innerHTML = '';
+            from += sura_key;
+
+            for (let c = from-1; c < to && sura_key+1 != VERSES[c].verse_key[0]; c++) {
+                // console.log(VERSES[c].verse_key[0]);
+                const tmp = document.createElement('span');
+                const verse = VERSES.at(c);
+                tmp.innerHTML= (verse.text_uthmani_tajweed);
+                sura.append(tmp);
+            }
+        }
+        
+        function get_sura(sura_key) {
+            const sura = document.querySelector('#sura');
+            sura.innerHTML = '';
+            const foo = VERSES.find(verse => {
+                return verse.id == sura_key
+            });
+            console.log(foo);
+        }
+
+
+        if (!localStorage.getItem('quran')) {
+            
+            fetch('http://api.alquran.cloud/v1/quran/quran-uthmani')
+            .then(response => response.json())
+            .then(results => {
+                localStorage.setItem("quran", JSON.stringify(results.data.surahs));
+            })
+            .catch(error => {
+                console.log('error loading quran fiailed');
+            });
+        }
+        
+        
+        function get_sura(num, start=0, end=0) {
+            const db = JSON.parse(localStorage.getItem('quran'));
+            if (end == 0) {
+                end = db[num-1].ayahs.length;
+            }
+            const chapter = document.createElement('div');
+            for (let i = start; i < end; i++) {
+                const aya = document.createElement('span');
+                if (!aya) {
+                    return chapter; 
+                }
+                aya.innerHTML = db[num-1].ayahs[i].text;
+                chapter.append(aya);
+            }
+
+            return chapter;
+
+        }
+        
+
+
+        document.addEventListener('DOMContentLoaded', function() {
+            let sura = document.querySelector('#sura');
+            document.querySelector('input').addEventListener('change', function() {
+                sura.innerHTML = '';
+                sura.append(get_sura(this.value), 5, 5);
+            });
+
+
+        });
+
+
+    </script>
+        
+</head>
+<body>
+    <h2>foo</h2>
+    
+    <form action="">
+        <input type="number">
+    </form>
+
+    <p id="sura"></p>
+    <div id="can"></div>
+</body>
+</html>
+<html></html>

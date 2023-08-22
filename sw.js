@@ -1,3 +1,4 @@
+// بسم الله الرحمن الرحيم
 self.addEventListener('install', function(event) {
     event.waitUntil(
         caches.open("static")
