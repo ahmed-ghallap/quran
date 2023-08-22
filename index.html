@@ -37,7 +37,9 @@
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <link rel="stylesheet" href="styles/styles.css">
+    <!-- <link rel="stylesheet" href="styles/styles.css"> -->
+    <link rel="stylesheet" href="bootstrap.rtl.min.css">
+
 
     <link rel="shortcut icon" href="logo.jpg" type="image/x-icon">
     <link rel="manifest" href="manifest.json">
@@ -71,6 +73,7 @@
         <input type="submit" value="بسم الله">
     </form>
    
+    <button class="btn">foo</button>
     <!-- dispay students -->
     <h2>جمع الطلاب مؤقت</h2>
     <div id="students">
@@ -82,8 +85,31 @@
         لا توجد مجموعات بعد
     </div>
 
-
     <div id="quran"></div>
+
+    <label for="group-info">اسم المجمعة</label>
+    <table class="table " id="group-info">
+        <thead>
+            <tr class="table-primary">
+                <th scope="col">اسمم الطالب</th>
+                <th scope="col">يحفظ</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td class="table-success">احمد</td>
+                <td>يحفظ (من : الي)  من سورة كذا</td>
+            </tr>
+            <tr>
+                <td class="table-success">احمد</td>
+                <td>يحفظ (من : الي)  من سورة كذا</td>
+            </tr>
+            <tr>
+                <td class="table-success">احمد</td>
+                <td>يحفظ (من : الي)  من سورة كذا</td>
+            </tr>
+        </tbody>
+    </table>
     
     
 </body>
