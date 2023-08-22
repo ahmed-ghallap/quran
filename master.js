@@ -17,6 +17,8 @@ if ('serviceWorker' in navigator) {
 document.addEventListener('DOMContentLoaded', function() {
 
     setup();
+
+
     // create a student.
     document.querySelector('#add-student').onsubmit = function() {
         create_student(this.name.value);
