@@ -45,7 +45,7 @@ if (!localStorage.getItem("table-sura")) {
 }
 if (!localStorage.getItem('table-quran')) {
         
-    fetch('http://api.alquran.cloud/v1/quran/quran-uthmani')
+    fetch('https://api.alquran.cloud/v1/quran/quran-uthmani')
     .then(response => response.json())
     .then(results => {
         localStorage.setItem("table-quran", JSON.stringify(results.data.surahs));
