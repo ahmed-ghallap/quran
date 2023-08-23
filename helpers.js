@@ -120,7 +120,7 @@ function add_student_to_group(studentId, groupId) {
        return null;
     }
 
-    group_model
+    
     for (let student of g.students) {
         if (student.id == s.id) {
             console.log(`Erro adding ${s.name} to ${g.name} because he is already exist.`)
