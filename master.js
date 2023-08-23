@@ -9,14 +9,15 @@
 // 2- add&remove(student, date)
 // 3- display_student_info(student-name, students)
 
-if ('serviceWorker' in navigator) {
-    navigator.serviceWorker.register('sw.js');
-}
+// if ('serviceWorker' in navigator) {
+    // navigator.serviceWorker.register('sw.js');
+// }
 
 
 document.addEventListener('DOMContentLoaded', function() {
 
     setup();
+    display('group');
 
 
     // create a student.

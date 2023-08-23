@@ -52,9 +52,9 @@
 
     <h1 class="text-center text-primary m-3">بسم الله</h1>
     <nav class="d-flex justify-content-center">
-        <button class="btn btn-outline-success ms-3">المجموعات</button>
-        <button class="btn btn-outline-success ms-3">اضف طالب جديد</button>
-        <button class="btn btn-outline-success ms-3">انشئ مجموعة جديدة</button>
+        <button onclick="display('group')" class="btn btn-outline-success ms-3">المجموعات</button>
+        <button onclick="display('createStudent')" class="btn btn-outline-success ms-3">اضف طالب جديد</button>
+        <button onclick="display('createGroup')" class="btn btn-outline-success ms-3">انشئ مجموعة جديدة</button>
     </nav>
     <hr>
 
@@ -95,7 +95,7 @@
 
     <div id="quran"></div> -->
 
-    <div id="createGroup-page">
+    <div class="m-3" id="createGroup-page">
         <h2>صفحة انشاء مجموعة جديدة</h2>
         <form> 
             <div class="mb-3">
@@ -110,7 +110,7 @@
         </form>
     </div>
 
-    <div id="createStudent-page">
+    <div class="m-3" id="createStudent-page">
         <h2>صفحة انشاء طالب جديد</h2>
         <form>
             <div class="mb-3">
