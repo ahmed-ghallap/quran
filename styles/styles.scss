@@ -1,7 +1,9 @@
+$foo: 20px;
 html {
-  height: fit-content;
-  border-top: 10px solid greenyellow;
-  border-right: 10px solid red;
-  border-left: 10px solid goldenrod;
-  border-bottom: 10px solid green;
+  min-height: 100vb;
+  // height: fit-content;
+  border-top: $foo solid greenyellow;
+  border-right:  $foo solid red;
+  border-left:  $foo solid goldenrod;
+  border-bottom:  $foo solid green;
 }

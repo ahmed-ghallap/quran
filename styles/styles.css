@@ -1,8 +1,8 @@
 html {
-  height: fit-content;
-  border-top: 10px solid greenyellow;
-  border-right: 10px solid red;
-  border-left: 10px solid goldenrod;
-  border-bottom: 10px solid green; }
+  min-height: 100vb;
+  border-top: 20px solid greenyellow;
+  border-right: 20px solid red;
+  border-left: 20px solid goldenrod;
+  border-bottom: 20px solid green; }
 
 /*# sourceMappingURL=styles.css.map */
