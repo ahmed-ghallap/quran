@@ -16,24 +16,18 @@ if ('serviceWorker' in navigator) {
 
 document.addEventListener('DOMContentLoaded', function() {
 
+
     setup();
     display('group');
+    message("مرحبا يا صدقي العزيز", 0);
 
-
-    // create a student.
-    document.querySelector('#add-student').onsubmit = function() {
-        create_student(this.name.value);
-        this.name.value = '';
-        // return false;
-    };
-
-    // create a group
-    document.querySelector('#add-group').onsubmit = function() {
-        create_group(this.name.value, this.day.value);
-        this.name.value = '';
-        this.day.value = '';
-        // return false;
-    };
+    // add student into database
+    document.querySelector('#student-form').onsubmit = function() {
+        create_student(this.name.value, this.age.value, this.phone.value);
+        message('تم تسجيل الطالب بنجاح', 0);
+        this.name.value = this.age.value = this.phone.value = '';
+        return false;
+    }
 
 
     // display all studets;

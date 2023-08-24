@@ -50,7 +50,9 @@
 </head>
 <body class="container">
 
-    <h1 class="text-center text-primary m-3">بسم الله</h1>
+    <!-- logo and bar -->
+    <h1 class="text-center text-primary m-3">  بسم الله الرحمن الرحيم</h1>
+
     <nav class="d-flex justify-content-center">
         <button onclick="display('group')" class="btn btn-outline-success ms-3">المجموعات</button>
         <button onclick="display('createStudent')" class="btn btn-outline-success ms-3">اضف طالب جديد</button>
@@ -58,42 +60,10 @@
     </nav>
     <hr>
 
+    <!-- messages -->
+    <div id="message" class="border">
 
-    <!-- create a student
-    <h2> سجل طالب</h2>
-    <form id="add-student">
-        <input autofocus autocomplete="off" name="name" placeholder="اسم الطالب">
-        <input type="submit" value="سجل">
-    </form>
-
-    create a group 
-    <h2>انشئ مجموعة</h2>
-    <form id="add-group">
-        <input name="name" placeholder="اسم المجمعة">
-        <input name="day" placeholder="يوم">
-        <input type="submit" value="انشئ">
-    </form>
-
-    <form id="get-sura">
-        <input name="sura" type="number" placeholder="رقم السورة">
-        <input name="from" type="number" placeholder="اول اية">
-        <input name="to" type="number"placeholder="اخرة اية">
-        <input type="submit" value="بسم الله">
-    </form>
-   
-
-    dispay students
-    <h2>جمع الطلاب مؤقت</h2>
-    <div id="students">
-        لا يوجد طلاب بعد
     </div>
-    display groups names
-    <h2>جمع الطلاب مؤقت</h2>
-    <div id="groups">
-        لا توجد مجموعات بعد
-    </div>
-
-    <div id="quran"></div> -->
 
     <div class="m-3" id="createGroup-page">
         <h2>صفحة انشاء مجموعة جديدة</h2>
@@ -110,9 +80,10 @@
         </form>
     </div>
 
+
     <div class="m-3" id="createStudent-page">
         <h2>صفحة انشاء طالب جديد</h2>
-        <form>
+        <form id="student-form">
             <div class="mb-3">
                 <label class="form-label" for="name">ادخل اسم الطالب:</label>            
                 <input class="form-control" name="name" placeholder="ادخل اسم الطالب" required>
@@ -123,7 +94,7 @@
             </div>
             <div class="mb-3">
                 <label class="form-label" for="phone">رقم الهاتف:</label>
-                <input class="form-control" type="tel" id="phone" name="phone" pattern="[0-9]{3}-[0-9]{2}-[0-9]{3}" placeholder="رقم الهاتف"> 
+                <input class="form-control" type="tel" id="phone" name="phone"  placeholder="رقم الهاتف"> 
             </div>
             <input class="btn btn-primary" type="submit" value="انشء">
         </form>
@@ -136,7 +107,7 @@
                 المجموعات
             </button>
             <ul class="dropdown-menu ">
-              <li><button data-group="1" class="dropdown-item active " type="button">الصالحين</button></li>
+              <li><button data-group="1" class="dropdown-item " type="button">الصالحين</button></li>
               <li><button data-group="2" class="dropdown-item" type="button">الطلائع</button></li>
               <li><button data-group="3" class="dropdown-item" type="button">المؤمنون</button></li>
             </ul>

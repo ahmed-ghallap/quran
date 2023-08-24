@@ -21,6 +21,8 @@ const student_in_group_model = {
 const student_model = {
     id: 0,
     name: null,
+    age: null,
+    phone: null,
     groups: []
 }
 const group_model = {
@@ -58,32 +60,34 @@ if (!localStorage.getItem('table-quran')) {
 
 
     
-function create_student(name) {
+function create_student(name, age=null, phone=null) {
     // tested
     // create and save a student.
     // returns the student id.
-    const Students = JSON.parse(localStorage.getItem('table-students'));
+    const Students = get_objects_students();
     const lastId = parseInt(Students.slice(-1)[0].id);
     const tmp = student_model;
     tmp.id = lastId+1;
     tmp.name = name;
+    tmp.age = age,
+    tmp.phone = phone;
     Students.push(tmp);
-    
-    localStorage.setItem("table-students", JSON.stringify(Students));
+   
+    save_objects_students(Students);
     return lastId+1;
 }
 function create_group(name, day) {
         // tested
         // Create a new group with empty array of students
-    const groups = JSON.parse(localStorage.getItem('table-groups'));
+    const groups = get_objects_groups();
     const oldId = parseInt(groups.slice(-1)[0].id);
     const tmp = group_model;
     tmp.name = name;
     tmp.day = day;
     tmp.id = oldId+1;
     groups.push(tmp);
-    
-    localStorage.setItem("table-groups", JSON.stringify(groups));
+   
+    save_objects_groups(groups);
     return tmp.id;
 }
 function create_suraDb() {
@@ -266,4 +270,22 @@ function edit_student(studentId, groupId, now=[], per=[]) {
     });
     sura_now
     return g;
+}
+
+
+function message(m, state) {
+    const tmp = document.querySelector('#message');
+    tmp.style.display = 'block';
+    tmp.innerText = m;
+    if (state === 0) {
+        // success
+        tmp.classList.add("btn", "btn-success")
+    } else if (state === 1) {
+        tmp.classList.add('btn', 'btn-warrning`')
+    } else {
+        tmp.classList.add('btn', 'btn-danger')
+    }
+    setInterval( () => {
+        tmp.style.display = 'none';
+    }, 2000);
 }

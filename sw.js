@@ -4,7 +4,8 @@ self.addEventListener('install', function(event) {
         caches.open("static")
         .then(cache => {
             return cache.addAll([
-                "./", "./master.js", "./helpers.js", 
+                "./", "./master.js", "./helpers.js",
+                "./bootstrap.js", "./bootstrap.rtl.min.css"
             ]);
         })
     );
