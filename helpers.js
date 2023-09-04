@@ -1,4 +1,4 @@
-function display(page) {
+function display_page(page) {
     document.querySelector('#createStudent-page').style.display = 'none';
     document.querySelector('#createGroup-page').style.display = 'none';
     document.querySelector('#group-page').style.display = 'none';
@@ -8,7 +8,17 @@ function display(page) {
 
 function setup() {
     create_suraDb();
-    console.log("setup function")
+    display_group(1);
+    // creating the menu of groups 
+    // groups = get_objects_groups();
+    // groups.forEach(group => {
+        // if (group.id === 0) return;
+        // add_group_to_menu(group.id, group.name);
+    // });
+    // students.forEach(s => {
+        // if (s.id === 0) return;
+        // add_student_to_menu(s.id);
+    // });
 }
 
 // define standerd model.
@@ -20,14 +30,14 @@ const student_in_group_model = {
 }
 const student_model = {
     id: 0,
-    name: null,
+    name: 'لا يوجد طلاب بعد',
     age: null,
     phone: null,
     groups: []
 }
 const group_model = {
     id: 0,
-    name: null,
+    name: "لا يوجد مجوعات بعد!",
     students: [student_in_group_model],
     day: null
 }
@@ -76,6 +86,7 @@ function create_student(name, age=null, phone=null) {
     save_objects_students(Students);
     return lastId+1;
 }
+
 function create_group(name, day) {
         // tested
         // Create a new group with empty array of students
@@ -88,8 +99,11 @@ function create_group(name, day) {
     groups.push(tmp);
    
     save_objects_groups(groups);
+    add_group_to_menu(tmpl.id, tmp.name);
     return tmp.id;
 }
+
+
 function create_suraDb() {
     var suras = get_objects_sura();
     if (suras.length >= 113) {
@@ -275,17 +289,120 @@ function edit_student(studentId, groupId, now=[], per=[]) {
 
 function message(m, state) {
     const tmp = document.querySelector('#message');
-    tmp.style.display = 'block';
     tmp.innerText = m;
     if (state === 0) {
         // success
-        tmp.classList.add("btn", "btn-success")
+        tmp.classList = '';
+        tmp.classList.add('alert-success');
     } else if (state === 1) {
-        tmp.classList.add('btn', 'btn-warrning`')
+        // warring
+        tmp.classList.toggle("alert-warning")
     } else {
-        tmp.classList.add('btn', 'btn-danger')
+        // danger
+        tmp.classList.toggle("alert-danger")
     }
+    tmp.classList.add('h4', 'alert', 'text-center');
+    tmp.style.display = 'block';
     setInterval( () => {
         tmp.style.display = 'none';
     }, 2000);
 }
+
+
+function add_group_to_menu(id, name) {
+    // works
+    const menu = document.querySelector('#group-menu');
+    menu.innerHTML += `
+            <li><button data-group="${id}" class="dropdown-item " onclick="console.log(); display_group(this.dataset.group); console.log(this)" >${name}</button></li>
+    `;
+};
+
+function add_student_to_menu(id) {
+    const s = get_student_by_id(id);
+    const menu = document.querySelector('#student-menu');
+    menu.innerHTML += `
+            <option value="${s.id}">${s.name}</option>
+    `
+}
+
+function get_students_in_group(groupId) {
+    // works well
+    const g = get_group_by_id(groupId);
+    if (!g) return [];
+    let students = [];
+    g.students.forEach(s => {
+        if (s.id === 0) return;
+        students.push(get_student_by_id(s.id));
+    });
+    return students;
+}
+
+
+function get_students_not_in_group(groupId) {
+    // to do
+    let students = [];
+    let invalidIds = [];
+    get_students_in_group(groupId).forEach(s => {
+        invalidIds.push(s.id);
+    });
+    get_objects_students().forEach(s => {
+        if (s.id in invalidIds) return;
+        students.push(s)
+    });
+    return students
+}
+
+
+function display_group(groupId) {
+
+    const group = get_group_by_id(parseInt(groupId));
+    let rows = '';
+    let table = '';
+
+    if (group) {
+
+        group.students.forEach(s => {
+            const student = get_student_by_id(s.id);
+            rows += `
+                <tr id="${student.id}" class="student ">
+                    <td class="table-info ">${student.name}</td>
+                    <td>${s.count}</td>
+                    <th scope="row"><button class="btn">✅</button><button class="btn">❌</button></th>
+                </tr>
+            ` 
+            return;
+        })
+
+
+        table = `
+        <h2 class="text-center m-3 text-success ">${group.name}</h2>
+        <table class="table table-hover   text-center" id="group-table">
+        <caption>${group.name}</caption>
+            <thead>
+            <tr class="table-primary ">
+                    <th scope="col" class="table-secondary">اسم الطالب</th>
+                    <th scope="col" class="table-primary">الحضور</th>
+                    <th scope="col" class="table-primary"></th>
+                </tr>
+            </thead>
+            <tbody>
+                ${rows}       
+            </tbody>
+        </table>
+        `
+
+        
+    } else {
+        message("اضف طلاب جدد الي قاعدة البيانات", 1);
+    }
+    
+
+    document.querySelector('#table-group').innerHTML = table;
+    document.querySelector('#student-menu').innerHTML = '';
+    get_students_not_in_group(parseInt(groupId)).forEach(s => {
+        if (s.id === 0) return;
+        add_student_to_menu(s.id);
+    });
+}
+
+

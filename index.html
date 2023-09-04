@@ -54,20 +54,20 @@
     <h1 class="text-center text-primary m-3">  بسم الله الرحمن الرحيم</h1>
 
     <nav class="d-flex justify-content-center">
-        <button onclick="display('group')" class="btn btn-outline-success ms-3">المجموعات</button>
-        <button onclick="display('createStudent')" class="btn btn-outline-success ms-3">اضف طالب جديد</button>
-        <button onclick="display('createGroup')" class="btn btn-outline-success ms-3">انشئ مجموعة جديدة</button>
+        <button onclick="display_page('group')" class="btn btn-outline-success ms-3">المجموعات</button>
+        <button onclick="display_page('createStudent')" class="btn btn-outline-success ms-3">اضف طالب جديد</button>
+        <button onclick="display_page('createGroup')" class="btn btn-outline-success ms-3">انشئ مجموعة جديدة</button>
     </nav>
     <hr>
 
-    <!-- messages -->
-    <div id="message" class="border">
+    <!-- messages and alerts  -->
+    <div id="message" class="alert text-center h4" role="alert">
 
     </div>
 
     <div class="m-3" id="createGroup-page">
         <h2>صفحة انشاء مجموعة جديدة</h2>
-        <form> 
+        <form id="group-form"> 
             <div class="mb-3">
                 <label for="foo" class="form-label">اسم المجموعة:</label>
                 <input class="form-control" id="foo" name="name" placeholder="ادخل اسم المجموعة" required>
@@ -103,60 +103,35 @@
     <div id="group-page">
 
         <div class="d-flex justify-content-center m-4 ">
-            <button type="button" class="w-50 btn btn-secondary dropdown-toggle " data-bs-toggle="dropdown" aria-expanded="false">
+            <button id="group-list" type="button" class="w-50 btn btn-secondary dropdown-toggle  " data-bs-toggle="dropdown" aria-expanded="false">
                 المجموعات
             </button>
-            <ul class="dropdown-menu ">
-              <li><button data-group="1" class="dropdown-item " type="button">الصالحين</button></li>
-              <li><button data-group="2" class="dropdown-item" type="button">الطلائع</button></li>
-              <li><button data-group="3" class="dropdown-item" type="button">المؤمنون</button></li>
-            </ul>
+            <ul id="group-menu" class="dropdown-menu "></ul>
           </div>
         
           <div>
-              <h2 class="text-center m-3 text-success ">مجموعة الصالحين</h2>
-              <table class="table table-hover   text-center" id="group-table">
-                <caption>مجموعة الصالحين</caption>
-                <div class="d-flex justify-content-center m-4">
-                    <select class="form-select w-50 " >
-                        <!-- <option selected>اضف طالب الي المجمعة</option> -->
-                        <option value="1">احمد</option>
-                        <option value="2">يوسف</option>
-                        <option value="3">عبد الله</option>
-                    </select>
-                    <input type="submit" class="ms-3 btn btn-outline-primary" value="اضف طاب الي المجمعة">
-                </div>
-                        
-                  <thead>
-                      <tr class="table-primary ">
-                          <th scope="col" class="table-secondary">اسم الطالب</th>
-                          <th scope="col" class="table-primary">الحضور</th>
-                          <th scope="col" class="table-primary">ما عليه من حفظ ومراجعة</th>
-                          <th scope="col"></th>
-                      </tr>
-                  </thead>
-                  <tbody>
-                    
-                      <tr id="1" class="student ">
-                        <td class="table-info ">احمد</td>
-                        <td>2</td>
-                        <td>يحفظ (من : الي)  من سورة كذا</td>
-                        <th scope="row"><button class="btn">✅</button><button class="btn">❌</button></th>
-                    </tr>
-                    <tr id="2" class="student">
-                        <td class="table-info">احمد</td>
-                        <td > 2</td>
-                        <td>يحفظ (من : الي)  من سورة كذا</td>
-                        <th scope="row"><button class="btn">✅</button><button class="btn">❌</button></th>
-                    </tr >
-                    <tr id='3' class="student">
-                        <td class="table-info">احمد</td>
-                        <td > 2</td>
-                        <td>يحفظ (من : الي)  من سورة كذا</td>
-                        <th scope="row"><button class="btn">✅</button><button class="btn">❌</button></th>
-                      </tr>
-                  </tbody>
-              </table>
+              <form id="add-student-form" class="d-flex justify-content-center m-4">
+                  <select name="student" id="student-menu" class="form-select w-50 " >
+
+                  </select>
+                  <input  type="submit" class="ms-3 btn btn-outline-primary" value="اضف طاب الي المجمعة">
+              </form>
+
+              <div id="table-group" data-group="">
+                  <h2 class="text-center m-3 text-success ">مجموعة الصالحين</h2>
+                  <table class="table table-hover   text-center" id="group-table">
+                    <caption>مجموعة الصالحين</caption>
+                      <thead>
+                          <tr class="table-primary ">
+                              <th scope="col" class="table-secondary">اسم الطالب</th>
+                              <th scope="col" class="table-primary">الحضور</th>
+                              <th scope="col" class="table-primary"></th>
+                          </tr>
+                      </thead>
+                      <tbody>
+                     </tbody>
+                  </table>
+              </div>
           </div>
     </div> 
     
