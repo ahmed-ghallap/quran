@@ -3,7 +3,34 @@ html {
   min-height: 100vb;
   // height: fit-content;
   border-top: $foo solid greenyellow;
-  border-right:  $foo solid red;
-  border-left:  $foo solid goldenrod;
+  border-right:  $foo solid green;
+  border-left:  $foo solid greenyellow;
   border-bottom:  $foo solid green;
+  animation-name: loop;
+  animation-duration: 4s;
+  animation-iteration-count: infinite;
+  animation-fill-mode: forwards;
+}
+
+@keyframes loop {
+  0% {
+    border-top: $foo solid greenyellow;
+    border-right:  $foo solid green;
+    border-left: $foo solid greenyellow;
+    border-bottom:  $foo solid green;
+  }
+
+  50% {
+    border-top: $foo solid yellow;
+    border-right:  $foo solid grey;
+    border-left: $foo solid yellow;
+    border-bottom:  $foo solid grey;
+  }
+
+  100% {
+    border-top: $foo solid orange;
+    border-right:  $foo solid palevioletred;
+    border-left: $foo solid powderblue;
+    border-bottom:  $foo solid orange;
+  }
 }

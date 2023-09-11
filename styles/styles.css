@@ -1,8 +1,29 @@
 html {
   min-height: 100vb;
   border-top: 11px solid greenyellow;
-  border-right: 11px solid red;
-  border-left: 11px solid goldenrod;
-  border-bottom: 11px solid green; }
+  border-right: 11px solid green;
+  border-left: 11px solid greenyellow;
+  border-bottom: 11px solid green;
+  animation-name: loop;
+  animation-duration: 4s;
+  animation-iteration-count: infinite;
+  animation-fill-mode: forwards; }
+
+@keyframes loop {
+  0% {
+    border-top: 11px solid greenyellow;
+    border-right: 11px solid green;
+    border-left: 11px solid greenyellow;
+    border-bottom: 11px solid green; }
+  50% {
+    border-top: 11px solid yellow;
+    border-right: 11px solid grey;
+    border-left: 11px solid yellow;
+    border-bottom: 11px solid grey; }
+  100% {
+    border-top: 11px solid orange;
+    border-right: 11px solid palevioletred;
+    border-left: 11px solid powderblue;
+    border-bottom: 11px solid orange; } }
 
 /*# sourceMappingURL=styles.css.map */

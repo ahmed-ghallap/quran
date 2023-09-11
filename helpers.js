@@ -370,7 +370,7 @@ function display_group(groupId) {
                     <th scope="row"><button class="btn">✅</button><button class="btn">❌</button></th>
                 </tr>
             ` 
-            return;
+            // return;
         })
 
 
@@ -398,6 +398,8 @@ function display_group(groupId) {
     
 
     document.querySelector('#table-group').innerHTML = table;
+    document.querySelector('#table-group').dataset.group = groupId;
+
     document.querySelector('#student-menu').innerHTML = '';
     get_students_not_in_group(parseInt(groupId)).forEach(s => {
         if (s.id === 0) return;

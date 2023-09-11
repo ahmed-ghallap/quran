@@ -57,6 +57,9 @@ document.addEventListener('DOMContentLoaded', function() {
     // add a studnet to a group
     document.querySelector('#add-student-form').onsubmit = function() {
         const groupId = parseInt(document.querySelector('#table-group').dataset.group);
+        // const groupId = (document.querySelector('#table-group'));
+        console.log(groupId)
+        // return false;
         add_student_to_group(parseInt(this.student.value), groupId);
         message('تم اضافة الطالب بنجاح الي المجموعة', 0);
         display_group(groupId);
