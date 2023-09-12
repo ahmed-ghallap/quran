@@ -9,9 +9,9 @@
 // 2- add&remove(student, date)
 // 3- display_student_info(student-name, students)
 
-if ('serviceWorker' in navigator) {
+// if ('serviceWorker' in navigator) {
 //    navigator.serviceWorker.register('sw.js');
-}
+// }
 
 // golbal variables
 // const groups = get_objects_groups();
@@ -19,9 +19,6 @@ if ('serviceWorker' in navigator) {
 
 document.addEventListener('DOMContentLoaded', function() {
 
-    // $('button').on('click', function() {
-        // $(this).toggleClass('is-active');
-    //   });
 
     document.querySelector('.menu-toggle').onclick = function() {
         this.classList.toggle('is-active');
