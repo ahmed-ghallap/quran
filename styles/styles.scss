@@ -1,7 +1,23 @@
 $foo: 15px;
+
+:root {
+  --top: LightSeaGreen;
+  --right: DarkCyan;
+  --bottom: SteelBlue;
+  --left: MediumSlateBlue;
+  
+  --logo-color: Dodgerblue
+}
+ 
+// body {
+  //  background-color: #1488CC;
+  // background: linear-gradient(to right, rgba(43, 50, 178, 0.75), rgba(20, 136, 204, 0.75));
+// }
+
 html {
+
   min-height: 100vb;
-  // height: fit-content;
+  height: fit-content;
   // border-top: $foo solid greenyellow;
   // border-right:  $foo solid green;
   // border-left:  $foo solid greenyellow;
@@ -14,64 +30,89 @@ html {
 
 @keyframes loop {
   0% {
-    border-top: $foo solid LightSeaGreen;
-    border-right:  $foo solid DarkCyan;
-    border-bottom:  $foo solid SteelBlue;
-    border-left: $foo solid MediumSlateBlue;
+    border-top: $foo solid var(--top);
+    border-right:  $foo solid var(--right);
+    border-bottom:  $foo solid var(--bottom);
+    border-left: $foo solid var(--left);
   }
   30% {
-    border-top: $foo solid MediumSlateBlue;
-    border-right:  $foo solid LightSeaGreen;
-    border-bottom:  $foo solid DarkCyan;
-    border-left: $foo solid SteelBlue;
+    border-top: $foo solid var(--left);
+    border-right:  $foo solid var(--top) ;
+    border-bottom:  $foo solid var(--right);
+    border-left: $foo solid var(--bottom);
   }
 
   50% {
-    border-top: $foo solid SteelBlue;
-    border-right:  $foo solid MediumSlateBlue;
-    border-bottom:  $foo solid LightSeaGreen;
-    border-left: $foo solid DarkCyan;
+    border-top: $foo solid var(--bottom);
+    border-right:  $foo solid var(--left);
+    border-bottom:  $foo solid var(--top);
+    border-left: $foo solid var(--right);
   }
 
 
   70% {
-    border-top: $foo solid DarkCyan;
-    border-right:  $foo solid SteelBlue;
-    border-bottom:  $foo solid MediumSlateBlue;
-    border-left: $foo solid LightSeaGreen;
+    border-top: $foo solid var(--right);
+    border-right:  $foo solid var(--bottom);
+    border-bottom:  $foo solid var(--left);
+    border-left: $foo solid var(--top);
   }
 
   100% {
-    border-top: $foo solid LightSeaGreen;
-    border-right:  $foo solid DarkCyan;
-    border-bottom:  $foo solid SteelBlue;
-    border-left: $foo solid MediumSlateBlue;
+    border-top: $foo solid var(--top);
+    border-right:  $foo solid var(--right);
+    border-bottom:  $foo solid var(--bottom);
+    border-left: $foo solid var(--left);
   }
 
-  // 50% {
-  //   border-top: $foo solid DeepSkyBlue;
-  //   border-right:  $foo solid RoyalBlue;
-  //   border-left: $foo solid Blue;
-  //   border-bottom:  $foo solid MediumSlateBlue;
-  // }
+}
 
-  // 70% {
-  //   border-top: $foo solid DarkTurquoise;
-  //   border-right:  $foo solid CornflowerBlue;
-  //   border-left: $foo solid CadetBlue;
-  //   border-bottom:  $foo solid MidnightBlue;
-  // }
-  // 80% {
-  //   border-top: $foo solid DarkCyan;
-  //   border-right:  $foo solid MediumAquamarine;
-  //   border-left: $foo solid ForestGreen;
-  //   border-bottom:  $foo solid SteelBlue;
-  // }
-  // 100% {
-  //   border-top: $foo solid LightSeaGreen;
-  //   border-right:  $foo solid SteelBlue;
-  //   border-left: $foo solid MediumSlateBlue;
-  //   border-bottom:  $foo solid DarkCyan;
-  // }
+.logo {
+  font-style: italic;
+  font-size: 25px;
+  color: var(--logo-color);
+}
 
+.menu-toggle {
+  position: relative;
+  display: block;
+  width: 30px;
+  height: 26px;
+  background: transparent;
+  border-top: 4px solid;
+  border-bottom: 4px solid;
+  color: #1c2174;
+  font-size: 0;
+  transition: all 0.25s ease-in-out;
+}
+.menu-toggle:before, .menu-toggle:after {
+  content: "";
+  display: block;
+  width: 100%;
+  height: 4px;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  background: currentColor;
+  transform: translate(-50%, -50%);
+  transition: transform 0.25s ease-in-out;
+}
+
+button:hover {
+  color: #2b32b2;
+}
+
+button.is-active {
+  border-color: transparent;
+}
+button.is-active:before {
+  transform: translate(-50%, -50%) rotate(45deg);
+}
+button.is-active:after {
+  transform: translate(-50%, -50%) rotate(-45deg);
+}
+
+button {
+  border: none;
+  cursor: pointer;
+  outline: none;
 }

@@ -19,6 +19,19 @@ if ('serviceWorker' in navigator) {
 
 document.addEventListener('DOMContentLoaded', function() {
 
+    // $('button').on('click', function() {
+        // $(this).toggleClass('is-active');
+    //   });
+
+    document.querySelector('.menu-toggle').onclick = function() {
+        this.classList.toggle('is-active');
+        if (this.classList.length == 2) {
+            console.log('display setteings')
+        } else {
+            console.log('display home')
+        }
+    }
+
 
     message("مرحبا يا صدقي العزيز", 0);
     display_page('group');
