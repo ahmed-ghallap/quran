@@ -7,7 +7,7 @@ html {
   // border-left:  $foo solid greenyellow;
   // border-bottom:  $foo solid green;
   animation-name: loop;
-  animation-duration: 10s;
+  animation-duration: 5s;
   animation-iteration-count: infinite;
   animation-fill-mode: forwards;
 }
@@ -15,35 +15,63 @@ html {
 @keyframes loop {
   0% {
     border-top: $foo solid LightSeaGreen;
-    border-right:  $foo solid SteelBlue;
+    border-right:  $foo solid DarkCyan;
+    border-bottom:  $foo solid SteelBlue;
     border-left: $foo solid MediumSlateBlue;
+  }
+  30% {
+    border-top: $foo solid MediumSlateBlue;
+    border-right:  $foo solid LightSeaGreen;
     border-bottom:  $foo solid DarkCyan;
+    border-left: $foo solid SteelBlue;
   }
 
   50% {
-    border-top: $foo solid DeepSkyBlue;
-    border-right:  $foo solid RoyalBlue;
-    border-left: $foo solid Blue;
-    border-bottom:  $foo solid MediumSlateBlue;
+    border-top: $foo solid SteelBlue;
+    border-right:  $foo solid MediumSlateBlue;
+    border-bottom:  $foo solid LightSeaGreen;
+    border-left: $foo solid DarkCyan;
   }
 
+
   70% {
-    border-top: $foo solid DarkTurquoise;
-    border-right:  $foo solid CornflowerBlue;
-    border-left: $foo solid CadetBlue;
-    border-bottom:  $foo solid MidnightBlue;
-  }
-  80% {
     border-top: $foo solid DarkCyan;
-    border-right:  $foo solid MediumAquamarine;
-    border-left: $foo solid ForestGreen;
-    border-bottom:  $foo solid SteelBlue;
+    border-right:  $foo solid SteelBlue;
+    border-bottom:  $foo solid MediumSlateBlue;
+    border-left: $foo solid LightSeaGreen;
   }
+
   100% {
     border-top: $foo solid LightSeaGreen;
-    border-right:  $foo solid SteelBlue;
+    border-right:  $foo solid DarkCyan;
+    border-bottom:  $foo solid SteelBlue;
     border-left: $foo solid MediumSlateBlue;
-    border-bottom:  $foo solid DarkCyan;
   }
+
+  // 50% {
+  //   border-top: $foo solid DeepSkyBlue;
+  //   border-right:  $foo solid RoyalBlue;
+  //   border-left: $foo solid Blue;
+  //   border-bottom:  $foo solid MediumSlateBlue;
+  // }
+
+  // 70% {
+  //   border-top: $foo solid DarkTurquoise;
+  //   border-right:  $foo solid CornflowerBlue;
+  //   border-left: $foo solid CadetBlue;
+  //   border-bottom:  $foo solid MidnightBlue;
+  // }
+  // 80% {
+  //   border-top: $foo solid DarkCyan;
+  //   border-right:  $foo solid MediumAquamarine;
+  //   border-left: $foo solid ForestGreen;
+  //   border-bottom:  $foo solid SteelBlue;
+  // }
+  // 100% {
+  //   border-top: $foo solid LightSeaGreen;
+  //   border-right:  $foo solid SteelBlue;
+  //   border-left: $foo solid MediumSlateBlue;
+  //   border-bottom:  $foo solid DarkCyan;
+  // }
 
 }

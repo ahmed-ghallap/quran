@@ -341,28 +341,37 @@ function get_students_in_group(groupId) {
 function get_students_not_in_group(groupId) {
     // to do
     let students = [];
-    let invalidIds = [];
+    let invalidIds = [0];
     get_students_in_group(groupId).forEach(s => {
         invalidIds.push(s.id);
     });
-    get_objects_students().forEach(s => {
-        if (s.id in invalidIds) return;
-        students.push(s)
+
+    get_objects_students().forEach(value => {
+        let pass = true;
+        for (let id of invalidIds) {
+            if (id === value.id) {
+                console.log(id)
+                pass = false;
+                break;
+            }
+        }
+        if (pass) {
+            students.push(value)
+        }
     });
     return students
 }
 
 
 function display_group(groupId) {
-
     const group = get_group_by_id(parseInt(groupId));
+
     let rows = '';
     let table = '';
-
     if (group) {
-
         group.students.forEach(s => {
             const student = get_student_by_id(s.id);
+            if (student.id === 0) return;
             rows += `
                 <tr id="${student.id}" class="student ">
                     <td class="table-info ">${student.name}</td>
@@ -370,16 +379,14 @@ function display_group(groupId) {
                     <th scope="row"><button class="btn">✅</button><button class="btn">❌</button></th>
                 </tr>
             ` 
-            // return;
         })
-
 
         table = `
         <h2 class="text-center m-3 text-success ">${group.name}</h2>
         <table class="table table-hover   text-center" id="group-table">
         <caption>${group.name}</caption>
             <thead>
-            <tr class="table-primary ">
+                <tr class="table-primary ">
                     <th scope="col" class="table-secondary">اسم الطالب</th>
                     <th scope="col" class="table-primary">الحضور</th>
                     <th scope="col" class="table-primary"></th>
@@ -390,13 +397,10 @@ function display_group(groupId) {
             </tbody>
         </table>
         `
-
-        
     } else {
         message("اضف طلاب جدد الي قاعدة البيانات", 1);
     }
     
-
     document.querySelector('#table-group').innerHTML = table;
     document.querySelector('#table-group').dataset.group = groupId;
 

@@ -1,35 +1,35 @@
 html {
   min-height: 100vb;
   animation-name: loop;
-  animation-duration: 10s;
+  animation-duration: 5s;
   animation-iteration-count: infinite;
   animation-fill-mode: forwards; }
 
 @keyframes loop {
   0% {
     border-top: 15px solid LightSeaGreen;
-    border-right: 15px solid SteelBlue;
-    border-left: 15px solid MediumSlateBlue;
-    border-bottom: 15px solid DarkCyan; }
+    border-right: 15px solid DarkCyan;
+    border-bottom: 15px solid SteelBlue;
+    border-left: 15px solid MediumSlateBlue; }
+  30% {
+    border-top: 15px solid MediumSlateBlue;
+    border-right: 15px solid LightSeaGreen;
+    border-bottom: 15px solid DarkCyan;
+    border-left: 15px solid SteelBlue; }
   50% {
-    border-top: 15px solid DeepSkyBlue;
-    border-right: 15px solid RoyalBlue;
-    border-left: 15px solid Blue;
-    border-bottom: 15px solid MediumSlateBlue; }
+    border-top: 15px solid SteelBlue;
+    border-right: 15px solid MediumSlateBlue;
+    border-bottom: 15px solid LightSeaGreen;
+    border-left: 15px solid DarkCyan; }
   70% {
-    border-top: 15px solid DarkTurquoise;
-    border-right: 15px solid CornflowerBlue;
-    border-left: 15px solid CadetBlue;
-    border-bottom: 15px solid MidnightBlue; }
-  80% {
     border-top: 15px solid DarkCyan;
-    border-right: 15px solid MediumAquamarine;
-    border-left: 15px solid ForestGreen;
-    border-bottom: 15px solid SteelBlue; }
+    border-right: 15px solid SteelBlue;
+    border-bottom: 15px solid MediumSlateBlue;
+    border-left: 15px solid LightSeaGreen; }
   100% {
     border-top: 15px solid LightSeaGreen;
-    border-right: 15px solid SteelBlue;
-    border-left: 15px solid MediumSlateBlue;
-    border-bottom: 15px solid DarkCyan; } }
+    border-right: 15px solid DarkCyan;
+    border-bottom: 15px solid SteelBlue;
+    border-left: 15px solid MediumSlateBlue; } }
 
 /*# sourceMappingURL=styles.css.map */
