@@ -1,29 +1,35 @@
 html {
   min-height: 100vb;
-  border-top: 11px solid greenyellow;
-  border-right: 11px solid green;
-  border-left: 11px solid greenyellow;
-  border-bottom: 11px solid green;
   animation-name: loop;
-  animation-duration: 4s;
+  animation-duration: 10s;
   animation-iteration-count: infinite;
   animation-fill-mode: forwards; }
 
 @keyframes loop {
   0% {
-    border-top: 11px solid greenyellow;
-    border-right: 11px solid green;
-    border-left: 11px solid greenyellow;
-    border-bottom: 11px solid green; }
+    border-top: 15px solid LightSeaGreen;
+    border-right: 15px solid SteelBlue;
+    border-left: 15px solid MediumSlateBlue;
+    border-bottom: 15px solid DarkCyan; }
   50% {
-    border-top: 11px solid yellow;
-    border-right: 11px solid grey;
-    border-left: 11px solid yellow;
-    border-bottom: 11px solid grey; }
+    border-top: 15px solid DeepSkyBlue;
+    border-right: 15px solid RoyalBlue;
+    border-left: 15px solid Blue;
+    border-bottom: 15px solid MediumSlateBlue; }
+  70% {
+    border-top: 15px solid DarkTurquoise;
+    border-right: 15px solid CornflowerBlue;
+    border-left: 15px solid CadetBlue;
+    border-bottom: 15px solid MidnightBlue; }
+  80% {
+    border-top: 15px solid DarkCyan;
+    border-right: 15px solid MediumAquamarine;
+    border-left: 15px solid ForestGreen;
+    border-bottom: 15px solid SteelBlue; }
   100% {
-    border-top: 11px solid orange;
-    border-right: 11px solid palevioletred;
-    border-left: 11px solid powderblue;
-    border-bottom: 11px solid orange; } }
+    border-top: 15px solid LightSeaGreen;
+    border-right: 15px solid SteelBlue;
+    border-left: 15px solid MediumSlateBlue;
+    border-bottom: 15px solid DarkCyan; } }
 
 /*# sourceMappingURL=styles.css.map */

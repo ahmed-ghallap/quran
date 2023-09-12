@@ -1,36 +1,49 @@
-$foo: 11px;
+$foo: 15px;
 html {
   min-height: 100vb;
   // height: fit-content;
-  border-top: $foo solid greenyellow;
-  border-right:  $foo solid green;
-  border-left:  $foo solid greenyellow;
-  border-bottom:  $foo solid green;
+  // border-top: $foo solid greenyellow;
+  // border-right:  $foo solid green;
+  // border-left:  $foo solid greenyellow;
+  // border-bottom:  $foo solid green;
   animation-name: loop;
-  animation-duration: 4s;
+  animation-duration: 10s;
   animation-iteration-count: infinite;
   animation-fill-mode: forwards;
 }
 
 @keyframes loop {
   0% {
-    border-top: $foo solid greenyellow;
-    border-right:  $foo solid green;
-    border-left: $foo solid greenyellow;
-    border-bottom:  $foo solid green;
+    border-top: $foo solid LightSeaGreen;
+    border-right:  $foo solid SteelBlue;
+    border-left: $foo solid MediumSlateBlue;
+    border-bottom:  $foo solid DarkCyan;
   }
 
   50% {
-    border-top: $foo solid yellow;
-    border-right:  $foo solid grey;
-    border-left: $foo solid yellow;
-    border-bottom:  $foo solid grey;
+    border-top: $foo solid DeepSkyBlue;
+    border-right:  $foo solid RoyalBlue;
+    border-left: $foo solid Blue;
+    border-bottom:  $foo solid MediumSlateBlue;
   }
 
-  100% {
-    border-top: $foo solid orange;
-    border-right:  $foo solid palevioletred;
-    border-left: $foo solid powderblue;
-    border-bottom:  $foo solid orange;
+  70% {
+    border-top: $foo solid DarkTurquoise;
+    border-right:  $foo solid CornflowerBlue;
+    border-left: $foo solid CadetBlue;
+    border-bottom:  $foo solid MidnightBlue;
   }
+  80% {
+    border-top: $foo solid DarkCyan;
+    border-right:  $foo solid MediumAquamarine;
+    border-left: $foo solid ForestGreen;
+    border-bottom:  $foo solid SteelBlue;
+  }
+  100% {
+    border-top: $foo solid LightSeaGreen;
+    border-right:  $foo solid SteelBlue;
+    border-left: $foo solid MediumSlateBlue;
+    border-bottom:  $foo solid DarkCyan;
+  }
+
 }
