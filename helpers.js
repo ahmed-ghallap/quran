@@ -1,3 +1,15 @@
+// بسم الله الرحمن الرحيم
+
+/* ToDo
+1. function message: Has some errors (err)
+2. function create_group: Avoiding duplicate names (err)
+3. function create_students: Avoiding duplicate names (err)
+4. Week table of groups dateings (feature)  
+5. Students pages (feature)
+*/
+
+
+
 function display_page(page) {
     document.querySelector('#createStudent-page').style.display = 'none';
     document.querySelector('#createGroup-page').style.display = 'none';
@@ -6,20 +18,16 @@ function display_page(page) {
     document.querySelector(`#${page}-page`).style.display = 'block';
 }
 
-function setup() {
-    create_suraDb();
-    display_group(1);
-    // creating the menu of groups 
-    // groups = get_objects_groups();
-    // groups.forEach(group => {
-        // if (group.id === 0) return;
-        // add_group_to_menu(group.id, group.name);
-    // });
-    // students.forEach(s => {
-        // if (s.id === 0) return;
-        // add_student_to_menu(s.id);
-    // });
-}
+
+const daysList = [
+    "السبت",
+    "الاحد",
+    "الاثنين",
+    "الثلاثاء",
+    "الأربعاء",
+    "الخميس",
+    "الجمعة"
+];
 
 // define standerd model.
 const student_in_group_model = {
@@ -68,7 +76,20 @@ if (!localStorage.getItem('table-quran')) {
     });
 }
 
-
+function setup() {
+    create_suraDb();
+    display_group(1);
+    // creating the menu of groups 
+    // groups = get_objects_groups();
+    // groups.forEach(group => {
+        // if (group.id === 0) return;
+        // add_group_to_menu(group.id, group.name);
+    // });
+    // students.forEach(s => {
+        // if (s.id === 0) return;
+        // add_student_to_menu(s.id);
+    // });
+}
     
 function create_student(name, age=null, phone=null) {
     // tested
@@ -88,8 +109,8 @@ function create_student(name, age=null, phone=null) {
 }
 
 function create_group(name, day) {
-        // tested
-        // Create a new group with empty array of students
+    // tested
+    // Create a new group with empty array of students
     const groups = get_objects_groups();
     const oldId = parseInt(groups.slice(-1)[0].id);
     const tmp = group_model;
@@ -99,8 +120,8 @@ function create_group(name, day) {
     groups.push(tmp);
    
     save_objects_groups(groups);
-    add_group_to_menu(tmpl.id, tmp.name);
-    return tmp.id;
+    add_group_to_menu(tmp.id, tmp.name);
+    return true;
 }
 
 
@@ -292,8 +313,7 @@ function message(m, state) {
     tmp.innerText = m;
     if (state === 0) {
         // success
-        tmp.classList = '';
-        tmp.classList.add('alert-success');
+        tmp.classList.toggle('alert-success');
     } else if (state === 1) {
         // warring
         tmp.classList.toggle("alert-warning")
@@ -303,7 +323,7 @@ function message(m, state) {
     }
     tmp.classList.add('h4', 'alert', 'text-center');
     tmp.style.display = 'block';
-    setInterval( () => {
+    setTimeout( () => {
         tmp.style.display = 'none';
     }, 2000);
 }
@@ -412,3 +432,24 @@ function display_group(groupId) {
 }
 
 
+function display_settings(state) {
+    const el = document.querySelector('#settings');
+    if (state === 1) {
+        // display it
+        console.log('display setteings')
+        el.style.animationPlayState = 'running'
+        
+    } else {
+        // don't
+        el.style.animationPlayState = 'paused'
+        console.log('display home')
+    }
+}
+
+
+function dayes() {
+    const el = document.querySelector('#day');
+    for (let i = 0; i < daysList.length; i++) {
+        el.innerHTML += `<option value="${i}">${daysList[i]}</option>`;
+    };
+}

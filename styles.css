@@ -5,6 +5,13 @@
   --left: MediumSlateBlue;
   --logo-color: Dodgerblue ; }
 
+#settings {
+  z-index: 10;
+  height: 100%;
+  width: 100%;
+  background-color: #1c2174;
+  color: red; }
+
 html {
   min-height: 100%;
   animation-name: loop;

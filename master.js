@@ -19,12 +19,19 @@
 
 document.addEventListener('DOMContentLoaded', function() {
 
-
     document.querySelector('.menu-toggle').onclick = function() {
+        const el = document.querySelector('#settings');
+
+        console.log(el.style.animationPlayState)
+        
         this.classList.toggle('is-active');
         if (this.classList.length == 2) {
+            // display it
             console.log('display setteings')
+            el.style.animationPlayState = 'running'
         } else {
+            // don't
+            el.style.animationPlayState = 'paused'
             console.log('display home')
         }
     }
@@ -54,13 +61,13 @@ document.addEventListener('DOMContentLoaded', function() {
     document.querySelector('#group-list').onclick = function() {
         document.querySelector('#group-menu').innerHTML = '';
         groups = get_objects_groups();
+        if (groups.length === 1) {
+            message("انت لم تنشئ مجمعاتك بعد, \n انقر علي 'انشئ مجموعة'", 1)
+        }
         groups.forEach(group => {
-            if (group.id === 0){
-                add_group_to_menu(0, "لا يوجد مجموعات بعد")   
-                return ;
+            if (group.id !== 0) {
+                add_group_to_menu(group.id, group.name);
             }
-            
-            add_group_to_menu(group.id, group.name);
         });
     }
 

@@ -58,25 +58,39 @@
     <nav class="d-flex justify-content-center">
         <button onclick="display_page('group')" class="btn btn-outline-success ms-3">المجموعات</button>
         <button onclick="display_page('createStudent')" class="btn btn-outline-success ms-3">اضف طالب جديد</button>
-        <button onclick="display_page('createGroup')" class="btn btn-outline-success ms-3">انشئ مجموعة جديدة</button>
+        <button onclick="display_page('createGroup'); dayes()" class="btn btn-outline-success ms-3">انشئ مجموعة جديدة</button>
     </nav>
     <hr>
 
     <!-- messages and alerts  -->
     <div id="message" class="alert text-center h4" role="alert">
-
     </div>
+
+
+    <!-- settings view -->
+    <div id="settings">
+        <p id="main">
+            بسم الله الرحمن الرحيم 
+        </p>
+        <p id="footer">
+            صلي الله محمد
+        </p>
+    </div>
+
+    
 
     <div class="m-3" id="createGroup-page">
         <h2>صفحة انشاء مجموعة جديدة</h2>
         <form id="group-form"> 
             <div class="mb-3">
-                <label for="foo" class="form-label">اسم المجموعة:</label>
-                <input class="form-control" id="foo" name="name" placeholder="ادخل اسم المجموعة" required>
+                <label for="name" class="form-label">اسم المجموعة:</label>
+                <input class="form-control" id="name" name="name" placeholder="ادخل اسم المجموعة" required>
             </div>
             <div class="mb-3">
-                <label for="bar">يوم الدرس:</label>                
-                <input class="form-control" id="bar" name="day"  placeholder="ادخل يوم الدرس" required>
+                <label for="day">يوم الدرس:</label>                
+                <!-- <input class="form-control" id="bar" name="day"  placeholder="ادخل يوم الدرس" required> -->
+                <select name="day" id="day" class="form-control">
+                </select>
             </div>
             <input class="btn btn-primary" type="submit" value="انشء">
         </form>
